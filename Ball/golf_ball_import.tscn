@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn7hfyrhfkh0y"]
+
+[ext_resource type="PackedScene" uid="uid://r116o5jn8345" path="res://assets/models/golf_ball.glb" id="1_a0wf4"]
+
+[node name="golf_ball_import" instance=ExtResource("1_a0wf4")]

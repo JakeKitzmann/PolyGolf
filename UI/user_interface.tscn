@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbaxyniptolad"]
+
+[ext_resource type="Script" path="res://UI/user_interface.gd" id="1_6sxex"]
+[ext_resource type="Script" path="res://UI/ItemList.gd" id="1_gp4d0"]
+[ext_resource type="Script" path="res://UI/PowerSlider.gd" id="3_xfx1m"]
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6sxex")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_right = 125.0
+offset_bottom = 167.0
+item_count = 5
+item_0/text = "Select Club"
+item_0/selectable = false
+item_1/text = "Driver"
+item_2/text = "Iron"
+item_3/text = "Wedge"
+item_4/text = "Putter"
+script = ExtResource("1_gp4d0")
+
+[node name="PowerSlider" type="VSlider" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -238.0
+offset_bottom = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("3_xfx1m")
+
+[node name="ShootButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -72.0
+offset_right = -103.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.70213, 1.22982)
+text = "Shoot!"
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="value_changed" from="PowerSlider" to="." method="_on_power_slider_value_changed"]
+[connection signal="pressed" from="ShootButton" to="." method="_on_shoot_button_pressed"]

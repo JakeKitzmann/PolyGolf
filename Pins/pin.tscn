@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu7k3mjkvogxn"]
+
+[ext_resource type="PackedScene" uid="uid://cdilumjyvs4or" path="res://assets/models/pin.glb" id="1_8ln3e"]
+[ext_resource type="Script" path="res://Pins/pin.gd" id="2_kfc5a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yxynt"]
+height = 5.28982
+radius = 2.2156
+
+[node name="pin" instance=ExtResource("1_8ln3e")]
+script = ExtResource("2_kfc5a")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_yxynt")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

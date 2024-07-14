@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxtu12f0xx2ak"]
+
+[ext_resource type="PackedScene" uid="uid://b5kk1rh02m4md" path="res://assets/models/landscape_tutorial.glb" id="1_r8lvt"]
+
+[node name="landscape_import" instance=ExtResource("1_r8lvt")]
+
+[node name="Cube" parent="." index="0"]
+layers = 3
+
+[node name="@StaticBody3D@33846" parent="." index="1"]
+collision_layer = 3
+collision_mask = 3

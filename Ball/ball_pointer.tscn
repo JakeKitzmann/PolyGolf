@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckj3nklrmv3ew"]
+
+[ext_resource type="PackedScene" uid="uid://dr74vxu8idwuu" path="res://assets/models/ball_pointer.glb" id="1_wx6fv"]
+[ext_resource type="ArrayMesh" uid="uid://b76mprn64bat4" path="res://ball_pointer.tres" id="2_jctho"]
+
+[node name="ball_pointer" instance=ExtResource("1_wx6fv")]
+
+[node name="BallPointer" parent="." index="0"]
+mesh = ExtResource("2_jctho")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjerdqyrkr65"]
+
+[ext_resource type="PackedScene" uid="uid://bgh4vpq51qjjs" path="res://assets/models/Iron.glb" id="1_0yjsg"]
+[ext_resource type="Script" path="res://iron_import.gd" id="2_rm41x"]
+
+[node name="Iron" instance=ExtResource("1_0yjsg")]
+script = ExtResource("2_rm41x")

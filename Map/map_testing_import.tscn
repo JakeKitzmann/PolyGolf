@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba530sqkfapkh"]
+
+[ext_resource type="PackedScene" uid="uid://blp2ccyhmj7tu" path="res://assets/models/map.glb" id="1_do3df"]
+
+[node name="map" instance=ExtResource("1_do3df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.367, 0)
+
+[node name="map2" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -28.7534, 31, -17.8676)
+
+[node name="trees" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0908, 36.9465, 33.9657)
+
+[node name="@StaticBody3D@29102" parent="." index="2"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="map" parent="." index="3"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -28.7534, 31, -17.8676)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd7wr3evo2i2r"]
+
+[ext_resource type="ArrayMesh" uid="uid://khh7i3pqb1fd" path="res://iron.tres" id="1_krxwu"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="Iron2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0)
+mesh = ExtResource("1_krxwu")
+skeleton = NodePath("")
