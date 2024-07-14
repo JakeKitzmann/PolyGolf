@@ -18,6 +18,7 @@ extends CharacterBody3D
 @onready var walking_camera = $WalkingParent/WalkingTarget/WalkingCamera
 @onready var shooting_pivot = $ShootingParent/ShootingPivot
 @onready var shooting_camera = $ShootingParent/ShootingPivot/ShotCamera
+@onready var shooting_parent = $ShootingParent
 
 # physics constants
 const SPEED = 5.0
@@ -40,7 +41,7 @@ var pan_mode = 0
 var move_to_ball = 0
 var shooting_offset = .5
 var swing_once = 0
-var in_shooting_mode = 0
+@export var in_shooting_mode = 0
 var power_modulation  = 0
 
 # club list {active (bool for shot), animation, power, phi}
@@ -99,6 +100,8 @@ func _physics_process(delta):
 		
 		# camera
 		camera_smooth_follow(delta)
+		
+		
 		
 		if follow_ball:
 			camera_follow_ball()
@@ -164,7 +167,9 @@ func _physics_process(delta):
 						
 						club[0] = 0
 						in_shooting_mode = 0
-
+						shooting_parent.aim_shot_toggle()
+						rotate_y(deg_to_rad(90))
+						camera_parent.rotate_y(deg_to_rad(90))
 				
 		elif not in_shooting_mode: # elif to keep from running immediately after shot
 			
@@ -212,6 +217,7 @@ func _physics_process(delta):
 			if direction != Vector3.ZERO:
 				rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), SPEED * delta)
 			
+		print(randf())
 		move_and_slide() # apply movement
 	
 # move ball when shot - eventually convert to spherical
@@ -229,10 +235,6 @@ func shoot_ball(delta, theta, phi, power):
 	
 # user input
 func _input(event):
-	
-	# pause game
-	if event.is_action_pressed('ui_cancel'):
-		$PauseMenu.pause()
 		
 	# leave shooting mode
 	if in_shooting_mode:

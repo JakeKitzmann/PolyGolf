@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cahrnewu2vdcn"]
+
+[ext_resource type="FontFile" uid="uid://tp3n774qkns2" path="res://Fonts/Poppins/Poppins-ExtraLight.ttf" id="1_xnbmp"]
+
+[resource]
+default_font = ExtResource("1_xnbmp")

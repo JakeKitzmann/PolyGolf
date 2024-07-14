@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbaxyniptolad"]
+[gd_scene load_steps=5 format=3 uid="uid://cbaxyniptolad"]
 
 [ext_resource type="Script" path="res://UI/user_interface.gd" id="1_6sxex"]
 [ext_resource type="Script" path="res://UI/ItemList.gd" id="1_gp4d0"]
+[ext_resource type="Theme" uid="uid://cahrnewu2vdcn" path="res://UI/user_interface.tres" id="2_ivrab"]
 [ext_resource type="Script" path="res://UI/PowerSlider.gd" id="3_xfx1m"]
 
 [node name="UserInterface" type="Control"]
@@ -15,8 +16,10 @@ script = ExtResource("1_6sxex")
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
-offset_right = 125.0
-offset_bottom = 167.0
+offset_right = 256.0
+offset_bottom = 312.0
+theme = ExtResource("2_ivrab")
+theme_override_font_sizes/font_size = 40
 item_count = 5
 item_0/text = "Select Club"
 item_0/selectable = false
@@ -54,6 +57,7 @@ offset_bottom = -41.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(1.70213, 1.22982)
+theme = ExtResource("2_ivrab")
 text = "Shoot!"
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

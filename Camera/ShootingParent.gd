@@ -18,13 +18,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed('aim_shot'):
-		if aiming == 1:
-			Input.warp_mouse(Vector2(vp_size.x, vp_size.y))
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			aiming = 0
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-			aiming = 1
+		aim_shot_toggle()
 
 		
 	if event is InputEventMouseMotion and Input.get_mouse_mode() != 0 and aiming == 1:
@@ -35,3 +29,12 @@ func _physics_process(delta):
 	camera_target.rotation.x= lerpf(camera_target.rotation.x, pitch, delta * 10)
 	
 	pitch = clamp(pitch, deg_to_rad(pitch_min), deg_to_rad(pitch_max))
+	
+func aim_shot_toggle():
+		if aiming == 1:
+			Input.warp_mouse(Vector2(vp_size.x, vp_size.y))
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			aiming = 0
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			aiming = 1
