@@ -9,6 +9,8 @@ var move_to_player
 @export var HUD: CanvasLayer
 var launch = false
 
+@export var dots = []
+
 @onready var collision_shape = $CollisionShape3D
 
 var physics_material = PhysicsMaterial.new()
@@ -40,17 +42,19 @@ func _physics_process(delta):
 		pass
 
 	if launch:
-		point(global_transform.origin)
+		point.rpc(global_position)
 
 func _on_area_3d_body_entered(body):
-	if body.to_string().begins_with('1'):
+	print(body)
+	if body.to_string().begins_with(player.name):
 		emit_signal("at_ball")
 
 
 func _input(event):
 	if event is InputEventKey and event.is_action_pressed('return_ball') and not event.is_echo():
 		move_to_player = 1
-		
+
+@rpc("call_local")
 func point(pos: Vector3, radius = 0.05, color = Color.WHITE_SMOKE, persist_ms = 10):
 	var mesh_instance := MeshInstance3D.new()
 	var sphere_mesh := SphereMesh.new()
@@ -75,6 +79,7 @@ func final_cleanup(mesh_instance: MeshInstance3D, persist_ms: float):
 		await get_tree().physics_frame
 		mesh_instance.queue_free()
 	elif persist_ms > 0:
+		dots.append(mesh_instance)
 		await get_tree().create_timer(persist_ms).timeout
 		mesh_instance.queue_free()
 	else:

@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxyff6qj6isda"]
+[gd_scene load_steps=3 format=3 uid="uid://bxyff6qj6isda"]
 
 [ext_resource type="PackedScene" uid="uid://01drlogo5rj8" path="res://assets/models/cart.glb" id="1_32pp5"]
+[ext_resource type="ArrayMesh" uid="uid://dof8ilrmm6eci" path="res://UI/cart.tres" id="2_xkbyp"]
 
 [node name="cart" instance=ExtResource("1_32pp5")]
+
+[node name="Cart" parent="." index="1"]
+mesh = ExtResource("2_xkbyp")

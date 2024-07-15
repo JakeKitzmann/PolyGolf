@@ -7,7 +7,7 @@
 radius = 0.132903
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_32b6j"]
-radius = 0.844575
+radius = 1.02207
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2xify"]
 properties/0/path = NodePath(".:position")

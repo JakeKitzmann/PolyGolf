@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="Poly Golf 0.02"
-run/main_scene="res://Map/map_testing.tscn"
+run/main_scene="res://Map/main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://Unknown/icon.svg"
-
-[display]
-
-window/size/mode=3
 
 [input]
 

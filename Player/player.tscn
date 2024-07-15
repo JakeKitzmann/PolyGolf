@@ -1579,19 +1579,19 @@ _data = {
 "_TPose": SubResource("Animation_3dxmb")
 }
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mtyhn"]
-properties/0/path = NodePath(".:position")
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ql40y"]
+properties/0/path = NodePath(".:rotation")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
-properties/1/path = NodePath(".:rotation")
+properties/1/path = NodePath(".:position")
 properties/1/spawn = true
 properties/1/sync = true
 properties/1/watch = false
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0129867, 0, 0.0169973)
 collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_0xwq5")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -1824,9 +1824,6 @@ libraries = {
 "": SubResource("AnimationLibrary_r5wua")
 }
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_mtyhn")
-
 [node name="WalkingParent" type="Node3D" parent="." node_paths=PackedStringArray("camera_target", "player")]
 script = ExtResource("14_aodsq")
 camera_target = NodePath("WalkingTarget")
@@ -1851,12 +1848,15 @@ transform = Transform3D(-0.995563, -0.0232761, -0.0911733, -0.0147315, 0.99553, 
 
 [node name="UserInterface" parent="." instance=ExtResource("12_tydvw")]
 
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ql40y")
+
 [connection signal="draw_arc" from="." to="Ball" method="_on_player_draw_arc"]
 [connection signal="strokes" from="." to="DevHUD/StrokeCounter" method="_on_player_strokes"]
-[connection signal="at_ball" from="Ball" to="." method="shooting_mode"]
 [connection signal="at_ball" from="Ball" to="." method="_on_ball_at_ball"]
+[connection signal="at_ball" from="Ball" to="." method="shooting_mode"]
 [connection signal="switch_cam" from="DevHUD" to="." method="switch_cam"]
-[connection signal="item_list_selected" from="UserInterface" to="." method="_on_item_list_selected"]
 [connection signal="item_list_selected" from="UserInterface" to="." method="_on_item_list_item_selected"]
+[connection signal="item_list_selected" from="UserInterface" to="." method="_on_item_list_selected"]
 [connection signal="shoot_button_pressed" from="UserInterface" to="." method="_on_swing_button_pressed"]
 [connection signal="slider_value_changed" from="UserInterface" to="." method="_on_power_slider_value_changed"]
